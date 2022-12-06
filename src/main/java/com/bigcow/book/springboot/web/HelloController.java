@@ -1,7 +1,6 @@
 package com.bigcow.book.springboot.web;
 
 import com.bigcow.book.springboot.web.dto.HelloResponseDto;
-import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

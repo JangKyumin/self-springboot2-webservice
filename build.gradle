@@ -1,33 +1,37 @@
-buildscript {
-    ext {
-        springBootVersion = '2.1.7.RELEASE'
-    }
-    repositories {
-        mavenCentral()
-        jcenter()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.0.0'
+    id 'io.spring.dependency-management' version '1.1.0'
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-
-group 'com.bigcow.book'
-version '1.0-SNAPSHOT'
-sourceCompatibility = 1.8
+group = 'com.codej'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '19'
 
 repositories {
     mavenCentral()
-    jcenter()
 }
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.projectlombok:lombok')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // spring boot
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // spring boot devtools 추가
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    // lombok 추가
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok:'
+
+    // junit 테스트
+    testCompileOnly 'junit:junit'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
 }
