@@ -17,19 +17,26 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-    // spring boot devtools 추가
+    // spring boot devtools
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-    // lombok 추가
+    // lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok:'
 
-    // junit 테스트
+    // junit
     testCompileOnly 'junit:junit'
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine'
+
+    // H2
+    runtimeOnly 'com.h2database:h2'
+
+    // JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'javax.persistence:javax.persistence-api:2.2'
 }
 
 tasks.named('test') {
